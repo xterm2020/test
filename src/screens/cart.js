@@ -3,6 +3,7 @@ import { Description, Details } from '../style';
 import { CartBody, Card } from './../style';
 const Cart = (props) => {
     const { email, name, phone, id, getUserId } = props
+    console.log(props)
     const handleShow = (event) => {
         event.preventDefault();
         getUserId(id)
