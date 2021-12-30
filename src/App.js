@@ -18,24 +18,26 @@ function App() {
 
 
   let modified_users = [[], []]
-  let search_users = []
   let filter = search === '' ? users : users.map(user => {
     return user.name.toLowerCase().includes(search)
   })
 
 
-  users.map((user, i) => {
-    let col = i % 2
-    return modified_users[col].push(user)
-  })
-  filter.map((f, i) => {
-    if (f === true) {
-      console.log(users[i])
-      return search_users.push(users[i])
-
-    }
-  })
-  console.log(search_users)
+  search ?
+    filter.map((f, i) => {
+      let col = i % 2
+      if (f === true) {
+        console.log(users[i])
+        return modified_users[col].push(users[i])
+      }
+    })
+    :
+    users.map((user, i) => {
+      let col = i % 2
+      console.log(i % 2)
+      return modified_users[col].push(user)
+    })
+  console.log(filter)
 
   useEffect(() => {
     axios.get(`https://jsonplaceholder.typicode.com/users`).then(res => {
@@ -84,7 +86,6 @@ function App() {
     setShow(true)
   }
 
-  console.log(filter)
   return (
     <div className="App">
       <div className="header">
@@ -92,51 +93,37 @@ function App() {
         <input className="search" placeholder="Search" onChange={(e) => { handleSearch(e.target.value) }} />
       </div>
       <div className="container">
-        {search ? <Contakt>
+        <Contakt>
           {string === 'clicked' ? <Row primary>
-            {search_users.map(result => {
+            {currentUser[0].map(result => {
               return (
-                <Cart name={result.name} email={result.email} phone={result.phone} id={result.id} getUserId={handleGetInfo} />
+                <Cart name={result.name} email={result.email} phone={result.phone} id={result.id} getUserId={handleGetInfo} key={result.id + result.name} />
               )
             })}
           </Row> : <Row>
-              {search_users.map(result => {
-                return (
-                  <Cart name={result.name} email={result.email} phone={result.phone} id={result.id} getUserId={handleGetInfo} />
-                )
-              })}
-            </Row>}
-        </Contakt> : <Contakt>
-            {string === 'clicked' ? <Row primary>
               {currentUser[0].map(result => {
                 return (
-                  <Cart name={result.name} email={result.email} phone={result.phone} id={result.id} getUserId={handleGetInfo} />
+                  <Cart name={result.name} email={result.email} phone={result.phone} id={result.id} getUserId={handleGetInfo} key={result.id + result.name} />
                 )
-              })}
-            </Row> : <Row>
-                {currentUser[0].map(result => {
-                  return (
-                    <Cart name={result.name} email={result.email} phone={result.phone} id={result.id} getUserId={handleGetInfo} />
-                  )
 
-                })}
-              </Row>}
-            {string === 'clicked' ? <Row primary>
+              })}
+            </Row>}
+          {string === 'clicked' ? <Row primary>
+            {currentUser[1].map(result => {
+              return (
+                <Cart name={result.name} email={result.email} phone={result.phone} id={result.id} getUserId={handleGetInfo} key={result.id + result.name} />
+              )
+
+            })}
+          </Row> : <Row>
               {currentUser[1].map(result => {
                 return (
-                  <Cart name={result.name} email={result.email} phone={result.phone} id={result.id} getUserId={handleGetInfo} />
+                  <Cart name={result.name} email={result.email} phone={result.phone} id={result.id} getUserId={handleGetInfo} key={result.id + result.name} />
                 )
 
               })}
-            </Row> : <Row>
-                {currentUser[1].map(result => {
-                  return (
-                    <Cart name={result.name} email={result.email} phone={result.phone} id={result.id} getUserId={handleGetInfo} />
-                  )
-
-                })}
-              </Row>}
-          </Contakt>}
+            </Row>}
+        </Contakt>}
         {string === 'clicked' ? <Listofposts primary >
           <ul>
             {posts.filter(post => post.userId === userId).slice(0, 5).map((filteredPost, index) => {
