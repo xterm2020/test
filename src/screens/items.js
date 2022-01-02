@@ -7,6 +7,7 @@ export const Item = ({ title, body }) => {
     const handleShow = () => {
         setShow(true)
     }
+    
     return (
         <div>
             <Itemtitle onCllck={handleShow}>{title}</Itemtitle>

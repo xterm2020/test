@@ -120,7 +120,6 @@ function App() {
                 return (
                   <Cart name={result.name} email={result.email} phone={result.phone} id={result.id} getUserId={handleGetInfo} key={result.id + result.name} />
                 )
-
               })}
             </Row>}
         </Contakt>}

@@ -21,6 +21,7 @@ export const Row = styled.div`
   flex-direction: row
   `
 
+
 export const Card = styled.div`  
   width: ${props => props.primary ? "270px" : "420px"};
   height: ${props => props.primary ? "265px" : "370px"};
