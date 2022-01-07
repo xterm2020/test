@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "//xterm2020.github.io/test/static/css/main.4b370d84.chunk.css",
-    "main.js": "//xterm2020.github.io/test/static/js/main.06a27880.chunk.js",
-    "main.js.map": "//xterm2020.github.io/test/static/js/main.06a27880.chunk.js.map",
+    "main.js": "//xterm2020.github.io/test/static/js/main.82b00aa8.chunk.js",
+    "main.js.map": "//xterm2020.github.io/test/static/js/main.82b00aa8.chunk.js.map",
     "runtime-main.js": "//xterm2020.github.io/test/static/js/runtime-main.2cf98046.js",
     "runtime-main.js.map": "//xterm2020.github.io/test/static/js/runtime-main.2cf98046.js.map",
     "static/js/2.2adddf74.chunk.js": "//xterm2020.github.io/test/static/js/2.2adddf74.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.2cf98046.js",
     "static/js/2.2adddf74.chunk.js",
     "static/css/main.4b370d84.chunk.css",
-    "static/js/main.06a27880.chunk.js"
+    "static/js/main.82b00aa8.chunk.js"
   ]
 }
