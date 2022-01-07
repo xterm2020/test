@@ -122,7 +122,7 @@ function App() {
                 )
               })}
             </Row>}
-        </Contakt>}
+        </Contakt>
         {string === 'clicked' ? <Listofposts primary >
           <ul>
             {posts.filter(post => post.userId === userId).slice(0, 5).map((filteredPost, index) => {
@@ -142,7 +142,8 @@ function App() {
               )
             })}
           </ul>
-        </Listofposts> : <Listofposts ></Listofposts>}
+        </Listofposts> : <Listofposts ></Listofposts>
+        }
       </div>
       <div className="footer">
         <button className="left" disabled={prevVisible} onClick={handlePrevContakts}>Previos</button>
